@@ -1,0 +1,70 @@
+rules_version = '2';
+
+// Production Firebase Storage rules for Password Saver.
+// Object path used by the app:
+//   users/{uid}/credentials/{credentialId}/{fileName}
+// Max attachment size in app: 1 MB (AppConstants.maxAttachmentBytes).
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Match app limit: 1 MB. Reject empty uploads.
+    function isValidSize() {
+      return request.resource.size > 0
+        && request.resource.size <= 1 * 1024 * 1024;
+    }
+
+    // Only types the app may upload (images, text/.env, gzip, docs).
+    function isAllowedContentType() {
+      return request.resource.contentType in [
+        'image/jpeg',
+        'image/jpg',
+        'image/png',
+        'image/webp',
+        'image/gif',
+        'image/heic',
+        'image/bmp',
+        'application/pdf',
+        'application/gzip',
+        'application/octet-stream',
+        'text/plain',
+        'text/x-env',
+        'application/x-dotenv',
+        'application/json',
+        'application/xml',
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        'application/vnd.ms-excel',
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+      ];
+    }
+
+    function isValidFileName(fileName) {
+      return fileName.size() > 0
+        && fileName.size() <= 200
+        && !fileName.matches('.*\\.\\..*');
+    }
+
+    // Default deny for any other path.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+
+    match /users/{userId}/credentials/{credentialId}/{fileName} {
+      allow read: if isOwner(userId);
+
+      allow create, update: if isOwner(userId)
+        && isValidSize()
+        && isAllowedContentType()
+        && isValidFileName(fileName);
+
+      allow delete: if isOwner(userId);
+    }
+  }
+}

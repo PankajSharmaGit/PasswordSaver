@@ -1,0 +1,111 @@
+{
+  "project_info": {
+    "project_number": "540276933275",
+    "project_id": "password-saver-b7f21",
+    "storage_bucket": "password-saver-b7f21.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540276933275:android:9f8203463e2a48c4affc3e",
+        "android_client_info": {
+          "package_name": "com.gryzion.passwordsaver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540276933275-5qql1toit9q6t1tqnovjl147ta3mg7mh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gryzion.passwordsaver",
+            "certificate_hash": "6573539db91ec38624b7cbf2fe8f4766ed70ca5b"
+          }
+        },
+        {
+          "client_id": "540276933275-7vi4393e177jisvofk61rhmad4hb2gqa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gryzion.passwordsaver",
+            "certificate_hash": "c5d01d1ac195984241e4688ea6a2b7fa9c03dd82"
+          }
+        },
+        {
+          "client_id": "540276933275-91dio1k9jfjpt5miu6un9fjdhpirqmva.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gryzion.passwordsaver",
+            "certificate_hash": "7ec1134688d8c993cbd458c9a45928128a69e0b9"
+          }
+        },
+        {
+          "client_id": "540276933275-cf5kvnkruj2jk1fjgupovh4r09p128mm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gryzion.passwordsaver",
+            "certificate_hash": "a755f248d266e5be52962bfefbe6f3b41c7c949a"
+          }
+        },
+        {
+          "client_id": "540276933275-hm83todqunj1ng3vj4k0k6ihuvtkb6p4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gryzion.passwordsaver",
+            "certificate_hash": "f5464b6d27aff4486acce8bec6f9b29ddf015cff"
+          }
+        },
+        {
+          "client_id": "540276933275-i2187jsqchhcnkdfdcs0dbmoci629kvi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gryzion.passwordsaver",
+            "certificate_hash": "98cc72c0e4eca7fd7f017c30a8c12d815f4a99e3"
+          }
+        },
+        {
+          "client_id": "540276933275-le4eoh6fmtdnbuefplargvjerikpgo7h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gryzion.passwordsaver",
+            "certificate_hash": "997a06910b09beb171c6a951d1aaf74f2dd768c4"
+          }
+        },
+        {
+          "client_id": "540276933275-v6lvvcaa33g35jqtlelulamv19sjoleb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gryzion.passwordsaver",
+            "certificate_hash": "703317caa1f087f47e3ed60520084b384636b533"
+          }
+        },
+        {
+          "client_id": "540276933275-vn62cmo7pma3cj7dmaahi89m67k52qdl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gryzion.passwordsaver",
+            "certificate_hash": "a3aa4ff1061e2a702c754880d37b35b0da1e4099"
+          }
+        },
+        {
+          "client_id": "540276933275-jbuk5dhd307f7l08j4tqoulc71vljc2j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChKKa5bTgt1w0KYIxwaavjGWFRiAsJZsI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540276933275-jbuk5dhd307f7l08j4tqoulc71vljc2j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

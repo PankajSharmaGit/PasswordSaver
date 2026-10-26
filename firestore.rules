@@ -1,0 +1,54 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Each user can only read/write their own profile document.
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow create: if request.auth != null && request.auth.uid == userId;
+      // Country is set only via Cloud Function (Admin SDK).
+      allow update: if request.auth != null
+        && request.auth.uid == userId
+        && !request.resource.data.diff(resource.data).affectedKeys()
+            .hasAny(['countryCode', 'countryName', 'countrySelectedAt']);
+      allow delete: if false;
+
+      // Vault credentials under the same user.
+      match /credentials/{docId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // Account groups (service → company/group → password children).
+      match /groups/{docId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+
+    match /subscriptions/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Plan pricing + file limits — readable by signed-in users; writes via Admin SDK only.
+    match /appConfig/{docId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // Razorpay orders — written only by Cloud Functions (Admin SDK).
+    match /paymentOrders/{orderId} {
+      allow read: if request.auth != null
+        && resource.data.userId == request.auth.uid;
+      allow write: if false;
+    }
+
+    // Admin action history — written only by Cloud Functions (Admin SDK).
+    match /adminAuditLogs/{logId} {
+      allow read, write: if false;
+    }
+
+    // Subscription tax invoices — written only by Cloud Functions (Admin SDK).
+    match /subscriptionBills/{billId} {
+      allow read, write: if false;
+    }
+  }
+}

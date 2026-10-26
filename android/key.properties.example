@@ -1,0 +1,6 @@
+# Copy this file to android/key.properties and fill in the two passwords.
+# key.properties and *.jks are ignored by git.
+storePassword=050820251997
+keyPassword=050820251999
+keyAlias=passwordsaver2026
+storeFile=passwordsaver.jks
